@@ -1,0 +1,112 @@
+package com.batu.uygulama3;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    // Main activity ve kayit isminde iki tane aktivite açın main içerisinde Kayıt ol ve Şifre yenile butonları olacaktır Kayıt ekranında 1 tane Edit Text 1 tane Text view ve 2 tane password text bulunacaktır Bu Programı aşşağıda verilen özelliklere göre programlayın Main activity ekranında kayıt butonu içerisinde kayitEkrani isminde bir fonksiyon olacaktır Butona tıklandığında kayıt aktivitesi açılacaktır Bu fonksiyonu yazın Kayıt ekranında kullandığımız bileşenler global olarak tanımlanacaktır. Ek olarak kullanıcı adı rumeli şifresi 12345 ve sifreTekrarDegiskeni 12345 olarak global olarak oluşturulacaktır onCreate fonksiyonunda tasarımda kullandığımız bileşenler ve global olarak kullandığımız değişkenler birbirilerine burada bağlanmalıdır Kayıt ol butonu içerisinde kayit isminde bir fonksiyon olacak ve kullanıcı tarafında girilen değer, sifre ve sifreTekrar değerleri aynı olduğunda text view içerisine Kayıt Başarılı yazdıracak
+    private EditText kullaniciAdi, sifre;
+    private EditText kullaniciAdiEditText, sifreEditText, sifreTekrarEditText;
+    private TextView sonucTextView;
+
+    private String dogruKullaniciAdi = "rumeli";
+    private String dogruSifre = "12345";
+    private TextView EtKontrol;
+
+    private String dKullaniciAdi="Batuhan",dsifre="12345";
+    private String kAdi, kSifre,sifreTekrar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        /*
+        kullaniciAdiEditText = findViewById(R.id.kullaniciAdiEditText);
+        sifreEditText = findViewById(R.id.sifreEditText);
+        sifreTekrarEditText = findViewById(R.id.sifreTekrarEditText);
+        sonucTextView = findViewById(R.id.kayitButton);
+
+        Button kayitButton = findViewById(R.id.kayitButton);
+
+        kullaniciAdi=findViewById(R.id.kullaniciAdiEditText);
+        sifre=findViewById(R.id.sifreEditText);
+        EtKontrol=findViewById(R.id.Kontrol);
+
+        Button kayitButton = findViewById(R.id.kayitButton);
+        kayitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                kayitEkrani();
+            }
+        });
+    */
+
+
+
+}
+
+/*
+    public void kayit(View view) {
+        // Kayıt işlemlerini gerçekleştir
+        String kullaniciAdi = kullaniciAdiEditText.getText().toString();
+        String sifre = sifreEditText.getText().toString();
+        String sifreTekrar = sifreTekrarEditText.getText().toString();
+
+        if (kullaniciAdi.equals(dogruKullaniciAdi) && sifre.equals(dogruSifre) && sifre.equals(sifreTekrar)) {
+            sonucTextView.setText("Kayıt Başarılı");
+        } else {
+            sonucTextView.setText("Kayıt Başarısız. Lütfen bilgilerinizi kontrol edin.");
+        }
+
+
+ */
+    public void gecisYap(View view)
+    {
+        // Veri Çekme İçin Kullanılır gettext  tostring ise gelen veriyi stringe dönüştürür
+        kAdi= kullaniciAdi.getText().toString();
+        kSifre= sifre.getText().toString();
+        sifreTekrar=sifre.getText().toString();
+
+        if(!TextUtils.isEmpty(kAdi)  && !TextUtils.isEmpty(kSifre))
+        {
+         //   EtKontrol.setText("Değer Girildi");
+            if(kAdi.equals("rumeli"))
+            {
+                if(kSifre.equals("12345"))
+                {
+                    if (sifreTekrar.equals("12345"))
+                    {
+                        Intent intent = new Intent(MainActivity.this, HelloActivity.class);
+                        intent.putExtra("KullaniciAdi",kAdi);
+
+                        startActivity(intent);
+                    }
+
+
+                }
+            }
+
+
+        }
+        else
+        {
+            EtKontrol.setText("Kullanıcı adı veya Şifre Boş Bırakılamaz");
+        }
+
+    }
+
+
+
+
+
+
+
+}
