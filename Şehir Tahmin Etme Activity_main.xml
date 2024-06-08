@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF0707"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnNormalOyun"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:background="#FFEB3B"
+        android:onClick="btnAnasayfaAyar"
+        android:text="Normal Oyun"
+        android:textColor="#3F51B5"
+        android:textColorHint="#E43030"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:backgroundTint="#F9BF10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewOyunIsmi" />
+
+    <Button
+        android:id="@+id/btnSureliOyun"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#AAA9A3"
+        android:onClick="btnAnasayfaAyar"
+        android:text="Süreli Oyun"
+        android:textColor="#673AB7"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:backgroundTint="#BEB9AB"
+        app:layout_constraintEnd_toEndOf="@+id/btnNormalOyun"
+        app:layout_constraintStart_toStartOf="@+id/btnNormalOyun"
+        app:layout_constraintTop_toBottomOf="@+id/btnNormalOyun" />
+
+    <Button
+        android:id="@+id/btnCikis"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#000000"
+        android:onClick="btnAnasayfaAyar"
+        android:text="Çıkış"
+        android:textColor="#FFC107"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:backgroundTint="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/btnSureliOyun"
+        app:layout_constraintStart_toStartOf="@+id/btnSureliOyun"
+        app:layout_constraintTop_toBottomOf="@+id/btnSureliOyun" />
+
+    <TextView
+        android:id="@+id/textViewOyunIsmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="4dp"
+        android:background="#FFEB3B"
+        android:text="Batu'nun Oyunu"
+        android:textColor="#9C27B0"
+        android:textSize="23sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
