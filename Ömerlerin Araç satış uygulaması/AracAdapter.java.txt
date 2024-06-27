@@ -1,0 +1,63 @@
+package com.example.aracsatisuygulamasi;
+
+import android.content.Context;
+import android.content.Intent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
+
+public class AracAdapter extends RecyclerView.Adapter<AracAdapter.AracViewHolder> {
+    private List<Arac> aracListesi;
+    private Context context;
+
+    public AracAdapter(Context context, List<Arac> aracListesi) {
+        this.context = context;
+        this.aracListesi = aracListesi;
+    }
+
+    @NonNull
+    @Override
+    public AracViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_arac, parent, false);
+        return new AracViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull AracViewHolder holder, int position) {
+        Arac arac = aracListesi.get(position);
+        holder.aracIsimTextView.setText(arac.getIsim());
+        holder.aracFiyatTextView.setText(arac.getFiyat());
+        holder.aracAciklamaTextView.setText(arac.getAciklama());
+
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, AracDetayActivity.class);
+            intent.putExtra("aracIsim", arac.getIsim());
+            intent.putExtra("aracFiyat", arac.getFiyat());
+            intent.putExtra("aracAciklama", arac.getAciklama());
+            intent.putExtra("aracResimKaynakId", arac.getResimKaynakId());
+            context.startActivity(intent);
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return aracListesi.size();
+    }
+
+    class AracViewHolder extends RecyclerView.ViewHolder {
+        TextView aracIsimTextView, aracFiyatTextView, aracAciklamaTextView;
+
+        public AracViewHolder(@NonNull View itemView) {
+            super(itemView);
+            aracIsimTextView = itemView.findViewById(R.id.aracIsimTextView);
+            aracFiyatTextView = itemView.findViewById(R.id.aracFiyatTextView);
+            aracAciklamaTextView = itemView.findViewById(R.id.aracAciklamaTextView);
+        }
+    }
+}

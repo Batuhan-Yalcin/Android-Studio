@@ -1,0 +1,31 @@
+package com.example.aracsatisuygulamasi;
+
+public class Arac {
+    private String isim;
+    private String fiyat;
+    private String aciklama;
+    private int resimKaynakId;
+
+    public Arac(String isim, String fiyat, String aciklama, int resimKaynakId) {
+        this.isim = isim;
+        this.fiyat = fiyat;
+        this.aciklama = aciklama;
+        this.resimKaynakId = resimKaynakId;
+    }
+
+    public String getIsim() {
+        return isim;
+    }
+
+    public String getFiyat() {
+        return fiyat;
+    }
+
+    public String getAciklama() {
+        return aciklama;
+    }
+
+    public int getResimKaynakId() {
+        return resimKaynakId;
+    }
+}

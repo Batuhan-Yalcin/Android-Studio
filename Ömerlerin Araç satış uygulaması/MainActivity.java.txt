@@ -1,0 +1,40 @@
+package com.example.aracsatisuygulamasi;
+
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView recyclerView;
+    private AracAdapter aracAdapter;
+    private List<Arac> aracListesi;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        aracListesi = new ArrayList<>();
+        aracListesi.add(new Arac("Toyota Corolla", "600,000 TL", "Güvenilir ve yakıt tasarruflu.", R.drawable.toyota_corolla));
+        aracListesi.add(new Arac("Honda Civic", "800,000 TL", "Spor ve şık.", R.drawable.honda_civic));
+        aracListesi.add(new Arac("Hyundai Elantra", "900.000 TL", "Turbo Motorlu Ve Yol Tutar.", R.drawable.hyundai_elantra));
+        aracListesi.add(new Arac("Ferrari", "15.500,000 TL", "İtalyan bir lüks spor otomobili, coupe, süperspor otomobil, spor otomobil üreticisidir.", R.drawable.ferrari));
+        aracListesi.add(new Arac("Ford Fiesta", "680.000 TL", "Az Yakması Ve Viraj Kabiliyeti İle Bilinir.", R.drawable.ford_fiesta));
+        aracListesi.add(new Arac("Tofaş", "250.000 TL ", "Abartı Egzoz İle Gençlerin Tercihi.", R.drawable.tofas));
+        aracListesi.add(new Arac("McLaren", "20.000,000 TL", "Süper Sport Bir Arabadır.", R.drawable.mclaren));
+        aracListesi.add(new Arac("Lamborghini Aventador", "25.000,000 TL", "Lamborghini aslında bir lüks süper araba, spor araba ve SUV üreticisidir ve merkezi İtalya, Sant'Agata Bolognese'dedir. .", R.drawable.lambo));
+        aracListesi.add(new Arac("Porsche", "5.000,000 TL", "Porsche'nın oğlu Ferry Porsche tarafından Stuttgart'ta kurulmuş olan spor araba firmasıdır.", R.drawable.porsche));
+
+        aracAdapter = new AracAdapter(this, aracListesi);
+        recyclerView.setAdapter(aracAdapter);
+    }
+}

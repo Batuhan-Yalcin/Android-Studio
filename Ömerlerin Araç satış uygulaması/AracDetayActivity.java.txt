@@ -1,0 +1,33 @@
+package com.example.aracsatisuygulamasi;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class AracDetayActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_arac_detay);
+
+        TextView aracIsimTextView = findViewById(R.id.aracIsimDetayTextView);
+        TextView aracFiyatTextView = findViewById(R.id.aracFiyatDetayTextView);
+        TextView aracAciklamaTextView = findViewById(R.id.aracAciklamaDetayTextView);
+        ImageView aracResimImageView = findViewById(R.id.aracResimImageView);
+
+        Intent intent = getIntent();
+        String aracIsim = intent.getStringExtra("aracIsim");
+        String aracFiyat = intent.getStringExtra("aracFiyat");
+        String aracAciklama = intent.getStringExtra("aracAciklama");
+        int aracResimKaynakId = intent.getIntExtra("aracResimKaynakId", -1);
+
+        aracIsimTextView.setText(aracIsim);
+        aracFiyatTextView.setText(aracFiyat);
+        aracAciklamaTextView.setText(aracAciklama);
+        aracResimImageView.setImageResource(aracResimKaynakId);
+    }
+}
