@@ -1,0 +1,45 @@
+package com.example.zaroyunu;
+
+import android.os.Bundle;
+import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ZarActivity extends AppCompatActivity {
+
+    private ImageView imgZar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_zar);
+
+        imgZar = findViewById(R.id.imgZar);
+
+        Zar zar = new Zar(6); // 6 yüzlü zar oluşturuyoruz
+        int zarDegeri = zar.zarAt();
+
+        switch (zarDegeri) {
+            case 1:
+                imgZar.setImageResource(R.drawable.zar1);
+                break;
+            case 2:
+                imgZar.setImageResource(R.drawable.zar2);
+                break;
+            case 3:
+                imgZar.setImageResource(R.drawable.zar3);
+                break;
+            case 4:
+                imgZar.setImageResource(R.drawable.zar4);
+                break;
+            case 5:
+                imgZar.setImageResource(R.drawable.zar5);
+                break;
+            case 6:
+                imgZar.setImageResource(R.drawable.zar6);
+                break;
+            default:
+                break;
+        }
+    }
+}
