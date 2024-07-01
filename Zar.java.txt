@@ -1,0 +1,17 @@
+package com.example.zaroyunu;
+
+import java.util.Random;
+
+public class Zar {
+
+    private int yuzSayisi;
+
+    public Zar(int yuzSayisi) {
+        this.yuzSayisi = yuzSayisi;
+    }
+
+    public int zarAt() {
+        Random rand = new Random();
+        return rand.nextInt(yuzSayisi) + 1;
+    }
+}

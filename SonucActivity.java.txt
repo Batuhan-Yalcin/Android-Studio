@@ -1,0 +1,20 @@
+package com.example.zaroyunu;
+
+import android.os.Bundle;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SonucActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sonuc);
+
+        TextView txtSonuc = findViewById(R.id.txtSonuc);
+
+        String kazanan = getIntent().getStringExtra("kazanan");
+        txtSonuc.setText(kazanan);
+    }
+}

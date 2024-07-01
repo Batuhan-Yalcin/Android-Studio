@@ -1,0 +1,77 @@
+package com.example.zaroyunu;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ZarActivity extends AppCompatActivity {
+
+    private ImageView imgZar1, imgZar2;
+    private TextView txtSonuc;
+    private Handler handler;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_zar);
+
+        imgZar1 = findViewById(R.id.imgZar1);
+        imgZar2 = findViewById(R.id.imgZar2);
+        txtSonuc = findViewById(R.id.txtSonuc);
+        handler = new Handler();
+
+        Zar zar = new Zar(6);
+
+        int player1Zar = zar.zarAt();
+        int player2Zar = zar.zarAt();
+
+        setZarImage(imgZar1, player1Zar);
+        setZarImage(imgZar2, player2Zar);
+
+        String kazanan;
+        if (player1Zar > player2Zar) {
+            kazanan = "Player 1 Kazandı!";
+        } else if (player1Zar < player2Zar) {
+            kazanan = "Player 2 Kazandı!";
+        } else {
+            kazanan = "Berabere!";
+        }
+
+        final String finalKazanan = kazanan;
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(ZarActivity.this, SonucActivity.class);
+                intent.putExtra("kazanan", finalKazanan);
+                startActivity(intent);
+            }
+        }, 2000); // 2 saniye bekle, ardından SonucActivity'ye geç
+    }
+
+    private void setZarImage(ImageView imgZar, int zarDegeri) {
+        switch (zarDegeri) {
+            case 1:
+                imgZar.setImageResource(R.drawable.zar1);
+                break;
+            case 2:
+                imgZar.setImageResource(R.drawable.zar2);
+                break;
+            case 3:
+                imgZar.setImageResource(R.drawable.zar3);
+                break;
+            case 4:
+                imgZar.setImageResource(R.drawable.zar4);
+                break;
+            case 5:
+                imgZar.setImageResource(R.drawable.zar5);
+                break;
+            case 6:
+                imgZar.setImageResource(R.drawable.zar6);
+                break;
+        }
+    }
+}
