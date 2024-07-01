@@ -3,13 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#655959"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/btnZarAt"
+        android:id="@+id/btnBasla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zar At"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:background="#03A9F4"
+        android:backgroundTint="#FFEB3B"
+        android:shadowColor="#CDDC39"
+        android:text="Oyuna Başla"
+        android:textColor="#00BCD4"
+        android:textColorHighlight="#FFE501"
+        android:textColorLink="#FFEB3B" />
 
 </RelativeLayout>
